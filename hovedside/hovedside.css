@@ -256,6 +256,19 @@ footer {
     overflow: hidden;
     will-change: transform;
     transition: opacity 0.3s ease;
+    cursor: default; /* Remove pointer cursor since it's not a modal trigger anymore */
+}
+
+.program-card {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7));
+}
+
+.program-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 30px rgba(0,0,0,0.1);
 }
 
 .program-icon {
@@ -265,8 +278,21 @@ footer {
     color: white;
 }
 
+.program-icon {
+    position: relative;
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    padding: 3rem;
+    transition: all 0.3s ease;
+}
+
 .program-icon i {
     font-size: 3rem;
+    transition: transform 0.3s ease;
+}
+
+.program-icon i {
+    font-size: 3.5rem;
+    color: white;
     transition: transform 0.3s ease;
 }
 
@@ -420,276 +446,271 @@ l
 }
 
 .lead-text {
+    max-width: 800px;
+    margin: 0 auto 4rem;
     font-size: 1.2rem;
     line-height: 1.8;
+}
+
+.key-info {
+    margin-bottom: 6rem;
+}
+
+.details-grid {
+    margin-bottom: 8rem;
+    gap: 3rem;
+}
+
+.testimonials {
+    margin: 8rem 0;
+}
+
+.testimonial-grid {
+    margin-top: 4rem;
+    gap: 3rem;
+}
+
+.career-paths {
+    margin: 8rem 0;
+}
+
+.career-grid {
+    margin-top: 4rem;
+    gap: 3rem;
+}
+
+.image-gallery {
+    margin: 8rem 0;
+    gap: 3rem;
+}
+
+section h3 {
+    font-size: 2rem;
     margin-bottom: 2rem;
 }
 
-.about-features {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
+.specialization-grid {
+    margin-top: 2rem;
 }
 
-.feature {
+.tag-container {
+    margin: 2rem 0;
+    justify-content: center;
+}
+
+/* New styles for detailed program pages */
+.program-page {
     text-align: center;
-    padding: 2rem;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-.feature:hover i {
-    transform: rotate(15deg) scale(1.2);
-    color: var(--accent-color);
-}
-
-/* Contact Section */
-.contact-section {
-    padding: 4rem 0;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    padding: 2rem;
-    border-radius: 16px;
-    background: rgba(255, 255, 255, 0.8);
-    margin-bottom: 2rem;
-}
-
-.contact-section:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    background: white;
-}
-
-.contact-section h2 {
-    transition: color 0.3s ease;
-}
-
-.contact-section:hover h2 {
-    color: var(--primary-color);
-}
-
-.contact-container {
-    max-width: 1000px;
+    padding: 4rem 2rem;
+    max-width: 1400px;
     margin: 0 auto;
 }
 
-.contact-info {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-}
-
-.contact-item {
+.program-page header {
+    height: 60vh;
+    position: relative;
     display: flex;
-    align-items: flex-start;
-    gap: 1.5rem;
-    padding: 2rem;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
 }
 
-.contact-item:hover i {
-    transform: translateY(-5px);
-    color: var(--accent-color);
-}
-
-.contact-item h3 {
-    margin: 0 0 0.5rem 0;
-    color: var(--text-color);
-}
-
-.contact-item p {
-    margin: 0;
-    color: #666;
-}
-
-/* Modal Styles */
-.modal-overlay {
-    display: none;
-    position: fixed;
+.program-page header::before {
+    content: '';
+    position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.3));
+    z-index: 1;
 }
 
-.modal-content {
-    background: white;
-    width: 90%;
-    max-width: 800px;
-    padding: 2rem;
-    border-radius: 16px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+.program-page header * {
     position: relative;
-    margin: 0;
-    transform: translateY(-10%);
+    z-index: 2;
+    color: white;
 }
 
-.close-modal {
+.program-header {
+    background: white;
+    padding: 3rem;
+    border-radius: 20px;
+    margin-top: -100px;
+    position: relative;
+    z-index: 3;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    text-align: center;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.program-icon-large {
+    font-size: 5rem;
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1.5rem;
+}
+
+.detail-card {
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.tag {
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    padding: 0.5rem 1.5rem;
+    border-radius: 25px;
+    color: white;
+    font-weight: 500;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.tag:hover {
+    transform: translateY(-2px);
+}
+
+.testimonial {
+    background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7));
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.testimonial:hover {
+    transform: translateY(-5px);
+}
+
+.career-card {
+    background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7));
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 2.5rem;
+    border-radius: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.career-card i {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.career-card:hover {
+    transform: translateY(-10px) scale(1.02);
+}
+
+.cta-button {
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    color: white;
+    padding: 1.2rem 3rem;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+.image-gallery {
+    margin: 8rem 0;
+    gap: 3rem;
+}
+
+.gallery-item {
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.gallery-item p {
     position: absolute;
-    right: 20px;
-    top: 20px;
-    font-size: 30px;
-    cursor: pointer;
-    color: var(--text-color);
-    transition: color 0.3s;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    color: white;
+    margin: 0;
 }
 
-.close-modal:hover {
+.application-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.form-container {
+    background: white;
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    margin-top: -100px;
+    position: relative;
+    z-index: 2;
+}
+
+.application-form .form-group {
+    margin-bottom: 2rem;
+}
+
+.application-form h3 {
+    margin-bottom: 1rem;
     color: var(--primary-color);
 }
 
-.modal-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.modal-section {
-    padding: 1.5rem;
-    background: var(--background-color);
-    border-radius: 8px;
-}
-
-.modal-section h3 {
-    color: #1a365d;
+.application-form input,
+.application-form select,
+.application-form textarea {
+    width: 100%;
+    padding: 1rem;
     margin-bottom: 1rem;
+    border: 2px solid #eee;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.3s ease;
 }
 
-.modal-section ul {
-    list-style-type: none;
-    padding: 0;
+.application-form input:focus,
+.application-form select:focus,
+.application-form textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
 }
 
-.modal-section ul li {
-    padding: 0.5rem 0;
-    border-bottom: 1px solid rgba(0,0,0,0.1);
+.application-form textarea {
+    min-height: 150px;
+    resize: vertical;
 }
 
-.modal-section ul li:last-child {
-    border-bottom: none;
-}
-
-.modal-footer {
-    text-align: center;
-    margin-top: 2rem;
-    padding-top: 2rem;
-    border-top: 1px solid rgba(0,0,0,0.1);
-}
-
-.search-btn {
+.submit-button {
     background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
     color: white;
+    padding: 1rem 3rem;
     border: none;
-    padding: 1rem 2rem;
-    border-radius: 8px;
+    border-radius: 30px;
     font-size: 1.1rem;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
-
-.search-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-}
-
-.search-btn i {
-    font-size: 1.2rem;
-}
-
-/* Make program cards clickable */
-.program-card {
-    cursor: pointer;
-}
-
-/* Remove accessibility-related styles */
-.skip-link {
-    display: none;
-}
-
-/* Basic modal styles */
-.modal-overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
     width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    z-index: 1000;
-}
-
-.compact-list {
-    list-style-type: none;
-    padding: 0;
-    margin: 0.5rem 0;
-}
-
-.compact-list li {
-    padding: 0.25rem 0;
-    border-bottom: none;
-}
-
-#studiespesialisering-modal .modal-content {
-    max-width: 800px;
-    margin: 15vh auto;
-}
-
-#studiespesialisering-modal .modal-grid {
-    grid-template-columns: repeat(2, 1fr);
-}
-
-#studiespesialisering-modal .modal-section {
-    padding: 1rem;
-}
-
-#medier-modal .modal-grid,
-#idrett-modal .modal-grid {
-    grid-template-columns: repeat(2, 1fr);
-}
-
-#medier-modal .modal-section,
-#idrett-modal .modal-section {
-    padding: 1rem;
-}
-
-.social-links {
-    position: fixed;
-    bottom: 2rem;
-    right: 2rem;
-    display: flex;
-    gap: 1rem;
-    z-index: 99;
-}
-
-.social-links a {
-    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-    color: white;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-.social-links a:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+.submit-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
