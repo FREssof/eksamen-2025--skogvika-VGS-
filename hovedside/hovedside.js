@@ -145,4 +145,23 @@ document.addEventListener('DOMContentLoaded', () => {
         const scrolled = (winScroll / height) * 100;
         progressBar.style.width = scrolled + '%';
     });
+
+    // Modal functionality
+    function openLaunchPartyModal() {
+        document.getElementById('launchPartyModal').style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeLaunchPartyModal() {
+        document.getElementById('launchPartyModal').style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+
+    // Close modal when clicking outside
+    window.onclick = function(event) {
+        const modal = document.getElementById('launchPartyModal');
+        if (event.target == modal) {
+            closeLaunchPartyModal();
+        }
+    }
 });
